@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import { useParams, useNavigate } from "react-router-dom";
 const EditProduct = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [product, setProduct] = useState({
     name: '',
     price: '',
@@ -94,7 +93,7 @@ const EditProduct = () => {
       });
       const data = await productData.json();
       toast.success('Product Updated Successfully');
-      navigate('/');
+
 
     } catch (error) {
       toast.error(error?.message);
