@@ -10,15 +10,6 @@ const Filter = () => {
   const [brand, setBrand] = useState('');
   const [discount, setDiscount] = useState('');
 
-  console.log({
-    sortBy,
-    price,
-    category,
-    gender,
-    occasion,
-    brand,
-    discount
-  });
 
   return (
     <>
