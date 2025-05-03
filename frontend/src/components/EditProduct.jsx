@@ -87,10 +87,7 @@ const EditProduct = () => {
       formData.append('occasion', product.occasion);
       formData.append('discount', product.discount);
       formData.append('image', imageFile);
-      if (!product.name || !product.price || !product.description || !product.gender || !product.productid || !product.color || !product.rating || !product.category || !product.brands || !product.occasion) {
-        toast.error('Please fill all the fields');
-        return;
-      }
+
       const productData = await fetch(`http://localhost:3000/v1/products/update/${id}`, {
         method: 'PUT',
         body: formData,
