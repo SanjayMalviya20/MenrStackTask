@@ -21,7 +21,7 @@ const AddProduct = () => {
   });
 
   const [image, setimage] = useState(null);
-  
+
   const handleInputChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
@@ -58,11 +58,11 @@ const AddProduct = () => {
       body: formData,
     });
     const data = await productData.json();
-    console.log(data);
     if (data) {
       dispatch(AddnewProduct(data.product));
       toast.success("Product Added successfully");
     }
+
     setProduct({
       name: '',
       price: '',
@@ -79,7 +79,7 @@ const AddProduct = () => {
     setimage(
       null
     )
-   
+
   };
 
   return (
@@ -156,18 +156,26 @@ const AddProduct = () => {
             className="border border-black"
           />
         </div>
-        <div className="mb-3  flex items-center gap-2">
-          <label className="block text-sm font-medium text-white" htmlFor="productid">
+        <div className="mb-3 flex items-center gap-2">
+          <label className="block text-sm font-medium text-white" htmlFor="discount">
             Product Discount
           </label>
-          <input
-            type="text"
-            id="productid"
+          <select
+            id="discount"
             name="discount"
             value={product.discount}
             onChange={handleInputChange}
-            className="border border-black"
-          />
+            className="border text-md  border-black text-black"
+          >
+            <option value="">Select Discount</option>
+            <option value="0">0%</option>
+            <option value="5">5%</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+            <option value="40">40%</option>
+            <option value="50">50%</option>
+            <option value="60">60%</option>
+          </select>
         </div>
         <div className="mb-3 flex gap-2">
           <label className="block text-sm font-medium text-white" htmlFor="color">
@@ -237,40 +245,72 @@ const AddProduct = () => {
           <label className="block text-sm font-medium text-white" htmlFor="category">
             Product Category
           </label>
-          <input
-            type="text"
+          <select
             id="category"
             name="category"
             value={product.category}
             onChange={handleInputChange}
-            className="border border-black"
-          />
+            className="border border-black text-black"
+          >
+            <option value="">Select Category</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="accessories">Accessories</option>
+            <option value="shoes">Shoes</option>
+            <option value="toys and games">Toys and Games</option>
+            <option value="other">Other</option>
+          </select>
         </div>
-        <div className="mb-3 flex gap-2 items-center text-black">
-          <label className="block text-sm font-medium text-white" htmlFor="brand">
+        <div className="mb-3 flex gap-2 items-center">
+          <label className="block text-sm font-medium text-white" htmlFor="brands">
             Product Brand
           </label>
-          <input
-            type="text"
-            id="brand"
+          <select
+            id="brands"
             name="brands"
             value={product.brands}
             onChange={handleInputChange}
-            className="border border-black"
-          />
+            className="border border-black text-black"
+          >
+            <option value="">Select Brand</option>
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+            <option value="puma">Puma</option>
+            <option value="reebok">Reebok</option>
+            <option value="alive">Alive</option>
+            <option value="gucci">Gucci</option>
+            <option value="crocs">Crocs</option>
+            <option value="cannon">Cannon</option>
+            <option value="fila">Fila</option>
+            <option value="ktm">KTM</option>
+            <option value="sony">Sony</option>
+            <option value="apple">Apple</option>
+            <option value="other">Other</option>
+          </select>
         </div>
+
         <div className="mb-3 flex gap-2 items-center">
           <label className="block text-sm font-medium text-white" htmlFor="occasion">
             Product Occasion
           </label>
-          <input
-            type="text"
+          <select
             id="occasion"
             name="occasion"
             value={product.occasion}
             onChange={handleInputChange}
-            className="border border-black"
-          />
+            className="border border-black text-black"
+          >
+            <option value="">Select Occasion</option>
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="sport">Sport</option>
+            <option value="birthday">Birthday</option>
+            <option value="wedding">Wedding</option>
+            <option value="holiday">Holiday</option>
+            <option value="photography">Photography</option>
+            <option value="play">Play</option>
+            <option value="other">Other</option>
+          </select>
         </div>
 
         <button

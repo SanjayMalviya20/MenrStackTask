@@ -4,7 +4,7 @@ export const CreateProduct = async (req, res) => {
     try {
 
         const { name, price, description, productid, color, rating, gender, category, brands, occasion, discount } = req.body;
-        if (!name || !price || !description || !productid || !color || !rating || !gender || !category || !brands || !occasion ||!discount) {
+        if (!name || !price || !description || !productid || !color || !rating || !gender || !category || !brands || !occasion || !discount) {
             return res.status(400).json({ error: 'Please fill all the fields' });
         }
         const product = await ProductModel.create({

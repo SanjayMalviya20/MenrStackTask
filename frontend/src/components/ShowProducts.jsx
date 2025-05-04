@@ -88,30 +88,30 @@ const ShowProducts = ({ price, category, gender, occasion, brand, discount, sort
         <tbody>
           {currentProducts.length > 0 ? (
             currentProducts.map(product => (
-              <tr key={product._id} className='bg-slate-800 text-white'>
-                <td className='border p-2'>{product.productid}</td>
-                <td className='border p-2'>{product.name}</td>
+              <tr key={product?._id} className='bg-slate-800 text-white'>
+                <td className='border p-2'>{product?.productid}</td>
+                <td className='border p-2'>{product?.name}</td>
                 <td className='border p-2'>
                   <img
                     className='w-16 rounded'
-                    src={`http://localhost:3000/${product.image}`}
-                    alt={product.name}
+                    src={`http://localhost:3000/${product?.image}`}
+                    alt={product?.name}
                   />
                 </td>
-                <td className='border p-2'>₹{product.price}</td>
-                <td className='border p-2'>{product.description}</td>
-                <td className='border p-2'>{product.color}</td>
-                <td className='border p-2'>{product.rating}</td>
-                <td className='border p-2'>{product.gender}</td>
-                <td className='border p-2'>{product.category}</td>
-                <td className='border p-2'>{product.brands}</td>
-                <td className='border p-2'>{product.occasion}</td>
-                <td className='border p-2'>{product.discount ? `${product.discount}% off` : '--'}</td>
+                <td className='border p-2'>₹{product?.price}</td>
+                <td className='border p-2'>{product?.description}</td>
+                <td className='border p-2'>{product?.color}</td>
+                <td className='border p-2'>{product?.rating}</td>
+                <td className='border p-2'>{product?.gender}</td>
+                <td className='border p-2'>{product?.category}</td>
+                <td className='border p-2'>{product?.brands}</td>
+                <td className='border p-2'>{product?.occasion}</td>
+                <td className='border p-2'>{product?.discount ? `${product.discount}% off` : '--'}</td>
                 
                 <td className='border p-2'>
                   <div className='flex gap-2'>
-                    <Link to={`/editproduct/${product._id}`} className='text-blue-400'>Edit</Link>
-                    <button onClick={() => deleteProduct(product._id)} className='text-red-400'>Delete</button>
+                    <Link to={`/editproduct/${product?._id}`} className='text-blue-400'>Edit</Link>
+                    <button onClick={() => deleteProduct(product?._id)} className='text-red-400'>Delete</button>
                   </div>
                 </td>
               </tr>

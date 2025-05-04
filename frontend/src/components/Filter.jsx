@@ -100,6 +100,7 @@ const Filter = () => {
           <label>Filter By Discount:</label>
           <select className='text-black p-2 rounded-md' value={discount} onChange={(e) => setDiscount(e.target.value)}>
             <option value="">Select...</option>
+            <option value="0"> 0%</option>
             <option value="5">5%</option>
             <option value="10">10%</option>
             <option value="20">20%</option>
